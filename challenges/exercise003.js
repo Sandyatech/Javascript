@@ -1,14 +1,14 @@
 export function getSquares(nums) {
-  if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
+    if (nums === undefined) throw new Error("nums is required");
+    // Your code here!
     return (nums.map(x => x ** 2));
 }
 
 export function camelCaseWords(words) {
-  if (words === undefined) throw new Error("words is required");
-  // Your code here!
+    if (words === undefined) throw new Error("words is required");
+    // Your code here!
     var ccw = "";
-    for (var i = 0; i<words.length; i++) {
+    for (var i = 0; i < words.length; i++) {
         if (i == 0)
             ccw = words[i];
         else
@@ -18,9 +18,9 @@ export function camelCaseWords(words) {
 }
 
 export function getTotalSubjects(people) {
-  if (people === undefined) throw new Error("people is required");
-    // Your code here!
-    var noOfSub=0;
+    if (people === undefined) throw new Error("people is required");
+    // Your code here! 
+    var noOfSub = 0;
     for (var i = 0; i < people.length; i++) {
         noOfSub += people[i]["subjects"].length;
     }
@@ -28,9 +28,9 @@ export function getTotalSubjects(people) {
 }
 
 export function checkIngredients(menu, ingredient) {
-  if (menu === undefined) throw new Error("menu is required");
-  if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+    if (menu === undefined) throw new Error("menu is required");
+    if (!ingredient) throw new Error("ingredient is required");
+    // Your code here!
     var ing = false;
     for (var i = 0; i < menu.length; i++)
         for (var j = 0; j < menu[i]["ingredients"].length; j++)
@@ -41,9 +41,9 @@ export function checkIngredients(menu, ingredient) {
 }
 
 export function duplicateNumbers(arr1, arr2) {
-  if (arr1 === undefined) throw new Error("arr1 is required");
-  if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+    if (arr1 === undefined) throw new Error("arr1 is required");
+    if (arr2 === undefined) throw new Error("arr2 is required");
+    // Your code here!
     var num = [];
     var exist;
     arr1.sort();
@@ -62,7 +62,7 @@ export function duplicateNumbers(arr1, arr2) {
                     if (exist == 0)
                         num.push(arr1[i]);
                 }
-            } 
+            }
         }
     return num;
 }

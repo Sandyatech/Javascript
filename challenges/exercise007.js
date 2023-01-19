@@ -3,7 +3,13 @@
  * @param {Number} n
  */
 export const sumDigits = (n) => {
-  if (n === undefined) throw new Error("n is required");
+    if (n === undefined) throw new Error("n is required");
+    var num = 0;
+    while (n > 0) {
+        num += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return num;
 };
 
 /**
@@ -15,12 +21,14 @@ export const sumDigits = (n) => {
  * @param {Number} step
  */
 export const createRange = (start, end, step) => {
-  if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
-  if (step === undefined)
-    console.log(
-      "FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
-    );
+    if (start === undefined) throw new Error("start is required");
+    if (end === undefined) throw new Error("end is required");
+    if (step === undefined)
+        step = 1;
+    var range = [];
+    for (var i = start; i <= end; i = i + step)
+        range.push(i);
+    return range;
 };
 
 /**
@@ -53,8 +61,20 @@ export const createRange = (start, end, step) => {
  * @param {Array} users
  */
 export const getScreentimeAlertList = (users, date) => {
-  if (users === undefined) throw new Error("users is required");
-  if (date === undefined) throw new Error("date is required");
+    if (users === undefined) throw new Error("users is required");
+    if (date === undefined) throw new Error("date is required");
+    const sumValues = obj => Object.values(obj).reduce((a, b) => a + b, 0);
+    var user = [];
+    for (var i = 0; i < users.length; i++) {
+        for (var j = 0; j < users[i]["screenTime"].length; j++)
+            //console.log();
+            if (users[i]["screenTime"][j]["date"] == date)
+                if (sumValues(users[i]["screenTime"][j]["usage"]) > 100)
+                    user.push(users[i]["username"]);
+
+    }
+    console.log(user)
+    return user;
 };
 
 /**
@@ -68,7 +88,13 @@ export const getScreentimeAlertList = (users, date) => {
  * @param {String} str
  */
 export const hexToRGB = (hexStr) => {
-  if (hexStr === undefined) throw new Error("hexStr is required");
+    if (hexStr === undefined) throw new Error("hexStr is required");
+
+    const hexToDecimal = hex => parseInt(hex, 16);
+    var colRed = hexStr.substr(1, 2);
+    var colGreen = hexStr.substr(3, 2);
+    var colBlue = hexStr.substr(5, 2);
+    return ("rgb(" + hexToDecimal(colRed) + "," + hexToDecimal(colGreen) + "," + hexToDecimal(colBlue) + ")");
 };
 
 /**
@@ -82,5 +108,22 @@ export const hexToRGB = (hexStr) => {
  * @param {Array} board
  */
 export const findWinner = (board) => {
-  if (board === undefined) throw new Error("board is required");
+    if (board === undefined) throw new Error("board is required");
+    var xCount = 0;
+    var oCount = 0;
+    var totalCount = 0;
+    for (var i = 0; i < board.length; i++)
+        for (var j = 0; j < board[i].length; j++) {
+            if (board[i][j] == "X")
+                xCount += 1;
+            else if (board[i][j] == "0")
+                oCount += 1;
+            totalCount += 1;
+        }
+    if (xCount > totalCount / 2)
+        return ("X");
+    else if (oCount > totalCount / 2)
+        return ("0");
+    else
+        return null;
 };
