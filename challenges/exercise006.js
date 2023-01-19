@@ -8,9 +8,9 @@ export const sumMultiples = (arr) => {
     if (arr === undefined) throw new Error("arr is required");
     var sum = 0;
     for (var i = 0; i < arr.length; i++) {
-        if (arr[i] % 3 == 0)
+        if (arr[i] % 3 === 0)
             sum += arr[i];
-        else if (arr[i] % 5 == 0)
+        else if (arr[i] % 5 === 0)
             sum += arr[i];
 
     }
@@ -24,10 +24,10 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
     if (str === undefined) throw new Error("str is required");
-    if ((typeof str != "string") || (str == ""))
+    if ((typeof str != "string") || (str === ""))
         return false;
     for (var i = 0; i < str.length; i++) {
-        if (!((str[i] == "A") || (str[i] == "C") || (str[i] == "G") || (str[i] == "T")))
+        if (!((str[i] === "A") || (str[i] === "C") || (str[i] === "G") || (str[i] === "T")))
             return false;
 
     }
@@ -66,7 +66,7 @@ export const isItPrime = (n) => {
     var divisor = 2;
     while (divisor < n) {
 
-        if (n % divisor == 0)
+        if (n % divisor === 0)
             return false;
         divisor++;
     }
@@ -112,12 +112,12 @@ export const areWeCovered = (staff, day) => {
     if (staff === undefined) throw new Error("staff is required");
     if (day === undefined) throw new Error("day is required");
     var staffCount = 0;
-    if (staff.length == 0) return false;
+    if (staff.length === 0) return false;
     for (var i = 0; i < staff.length; i++) {
-        if (staff[i]["rota"] === undefined) continue;
-        for (var j = 0; j < staff[i]["rota"].length; j++)
-            if (staff[i]["rota"][j] == day)
+        if (staff[i].rota === undefined) continue;
+        for (var j = 0; j < staff[i].rota.length; j++)
+            if (staff[i].rota[j] === day)
                 staffCount += 1;
     }
-    return (staffCount == 3);
+    return (staffCount === 3);
 };

@@ -66,14 +66,14 @@ export const getScreentimeAlertList = (users, date) => {
     const sumValues = obj => Object.values(obj).reduce((a, b) => a + b, 0);
     var user = [];
     for (var i = 0; i < users.length; i++) {
-        for (var j = 0; j < users[i]["screenTime"].length; j++)
+        for (var j = 0; j < users[i].screenTime.length; j++)
             //console.log();
-            if (users[i]["screenTime"][j]["date"] == date)
-                if (sumValues(users[i]["screenTime"][j]["usage"]) > 100)
-                    user.push(users[i]["username"]);
+            if (users[i].screenTime[j].date === date)
+                if (sumValues(users[i].screenTime[j].usage) > 100)
+                    user.push(users[i].username);
 
     }
-    console.log(user)
+    //console.log(user)
     return user;
 };
 
@@ -114,9 +114,9 @@ export const findWinner = (board) => {
     var totalCount = 0;
     for (var i = 0; i < board.length; i++)
         for (var j = 0; j < board[i].length; j++) {
-            if (board[i][j] == "X")
+            if (board[i][j] === "X")
                 xCount += 1;
-            else if (board[i][j] == "0")
+            else if (board[i][j] === "0")
                 oCount += 1;
             totalCount += 1;
         }

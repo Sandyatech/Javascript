@@ -8,13 +8,13 @@ export function findNamesBeginningWith(names, char) {
     if (!names) throw new Error("names is required");
     if (!char) throw new Error("char is required");
     // Your code here
-    return (names.filter(name => { if (name.charAt(0) == char) return name }));
+    return (names.filter(name => { if (name.charAt(0) === char) return name }));
 }
 
 export function findVerbs(words) {
     if (!words) throw new Error("words is required");
     // Your code here
-    return (words.filter(word => { if (word.substr(0, 3) == "to ") return word }));
+    return (words.filter(word => { if (word.substr(0, 3) === "to ") return word }));
 }
 
 export function getIntegers(nums) {
@@ -28,7 +28,7 @@ export function getCities(users) {
     // Your code here
     var city = [];
     for (var i = 0; i < users.length; i++)
-        city.push(users[i]["data"]["city"]["displayName"]);
+        city.push(users[i].data.city.displayName);
     return city;
 }
 

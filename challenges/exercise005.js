@@ -3,8 +3,8 @@ export const findNextNumber = (nums, n) => {
     if (n === undefined) throw new Error("n is required");
     // Your code here!
     for (var i = 0; i < nums.length; i++)
-        if (nums[i] == n) {
-            if (i == (nums.length - 1))
+        if (nums[i] === n) {
+            if (i === (nums.length - 1))
                 return null;
             return nums[i + 1];
         }
@@ -17,7 +17,7 @@ export const count1sand0s = (str) => {
     // Your code here!
     //var count = { 1: (str.match(/1/g) || []).length, 0: (str.match(/0/g) || []).length };
     /*for (var i = 0; i < str.length; i++)
-        if (str[i] == "1")
+        if (str[i] === "1")
             count[1] += 1;
         else
             count[0] += 1;*/

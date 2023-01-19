@@ -9,7 +9,7 @@ export function camelCaseWords(words) {
     // Your code here!
     var ccw = "";
     for (var i = 0; i < words.length; i++) {
-        if (i == 0)
+        if (i === 0)
             ccw = words[i];
         else
             ccw += words[i].charAt(0).toUpperCase() + words[i].slice(1);
@@ -22,7 +22,7 @@ export function getTotalSubjects(people) {
     // Your code here! 
     var noOfSub = 0;
     for (var i = 0; i < people.length; i++) {
-        noOfSub += people[i]["subjects"].length;
+        noOfSub += people[i].subjects.length;
     }
     return (noOfSub);
 }
@@ -33,8 +33,8 @@ export function checkIngredients(menu, ingredient) {
     // Your code here!
     var ing = false;
     for (var i = 0; i < menu.length; i++)
-        for (var j = 0; j < menu[i]["ingredients"].length; j++)
-            if (menu[i]["ingredients"][j] == ingredient) {
+        for (var j = 0; j < menu[i].ingredients.length; j++)
+            if (menu[i].ingredients[j] === ingredient) {
                 ing = true;
             }
     return ing;
@@ -51,15 +51,15 @@ export function duplicateNumbers(arr1, arr2) {
     for (var i = 0; i < arr1.length; i++)
         for (var j = 0; j < arr2.length; j++) {
             exist = 0;
-            if (arr1[i] == arr2[j]) {
-                if (num.length == 0)
+            if (arr1[i] === arr2[j]) {
+                if (num.length === 0)
                     num.push(arr1[i]);
                 else {
                     for (var k = 0; k < num.length; k++) {
-                        if (num[k] == arr1[i])
+                        if (num[k] === arr1[i])
                             exist = 1;
                     }
-                    if (exist == 0)
+                    if (exist === 0)
                         num.push(arr1[i]);
                 }
             }
